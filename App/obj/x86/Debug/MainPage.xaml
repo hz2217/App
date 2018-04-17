@@ -178,7 +178,7 @@
                                 Width="400" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <TextBox x:ConnectionId='18' Name="SearchBox"  HorizontalAlignment="Right" Width="200" Height="30" Background="Gray" Opacity="0.2" PlaceholderText="Search"/>
-                            <AppBarButton x:ConnectionId='19' Icon="Find" Margin="0,10,0,0"                             />
+                            <AppBarButton x:ConnectionId='19' Icon="Find" Margin="0,10,0,0"                     />
                         </StackPanel>
                         <!--<Image x:Name="TodoItemImage2" Source="Assets/背景.jpg"
                             Margin="0,50,0,0"

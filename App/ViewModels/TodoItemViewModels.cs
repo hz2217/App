@@ -261,7 +261,7 @@ namespace App.Models
         {
             // 加入两个用来测试的item
             ImageSource imgSource = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/背景.jpg"));
-            this.AllItems1.Add(new Models.TodoItem(ID, "TA", "TA IS A GIRL", DateTime.Now, imgSource, "ms-appx:///Assets/背景.jpg"));
+            this.AllItems1.Add(new Models.TodoItem(ID.ToString(), "TA", "TA IS A GIRL", DateTime.Now, imgSource, "ms-appx:///Assets/背景.jpg"));
 
             // New Feat: SQlitePCL 数据库搜寻
             var db = App.conn;
@@ -309,7 +309,27 @@ namespace App.Models
             // set selectedItem to null after remove
             this.SelectedItem1 = null;
         }
-    
+        public void RemoveTodoItem(string id)
+        {
+            for(int k = 0; k < AllItems.Count; ++k)
+            {
+                if (AllItems[k].Id == id)
+                {
+                    this.SelectedItem1 = AllItems[k];
+                    break;
+                }
+            }
+            AllItems.Remove(this.SelectedItem1);
+            var db = App.conn;
+            using (var statement = db.Prepare("DELETE FROM todolist WHERE Id = ?;"))
+            {
+                statement.Bind(1, SelectedItem1.Id);
+                statement.Step();
+            }
+            // set selectedItem to null after remove
+            this.SelectedItem1 = null;
+        }
+
         // 更新
         public void UpdateTodoItem(string id, string title, string description, DateTime date, ImageSource img, string strImg, bool isChecked)
         {

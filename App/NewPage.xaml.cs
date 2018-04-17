@@ -26,7 +26,6 @@ namespace App
         public NewPage()
         {
             this.InitializeComponent();
-
         }
 
         /*
