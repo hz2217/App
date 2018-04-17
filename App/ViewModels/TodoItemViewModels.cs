@@ -210,11 +210,10 @@ namespace App.Models
         }
     }
 
-    /*
-     * class TodoItemViewModel
+    /* class TodoItemViewModel
      * Field: 
      * Attribute: AllItems SelectedItem1 todoItemViewModel
-     * Methods:  GetTodoItemViewModel() TodoItemViewModel() AddTodoItem() RemoveTodoItem() UpdateTodoItem 
+     * Methods:  GetTodoItemViewModel() TodoItemViewModel() AddTodoItem() RemoveTodoItem() UpdateTodoItem insert
      */
     class TodoItemViewModel
     {
