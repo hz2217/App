@@ -129,7 +129,7 @@ namespace App.Models
         //日期字段自己写
         public TodoItem(string id, string title, string description, DateTime date, ImageSource img, string strImg)
         {
-            this.Id = Guid.NewGuid().ToString(); //生成id
+            this.Id = id; //生成id
             this.Title = title;
             this.description = description;
             this.date = date;

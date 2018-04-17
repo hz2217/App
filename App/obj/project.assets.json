@@ -6522,11 +6522,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Wjh\\大二下\\MOSAD\\Project\\App_HW6 - 副本\\App\\App.csproj",
+      "projectUniqueName": "C:\\Wjh\\大二下\\MOSAD\\App\\App\\App.csproj",
       "projectName": "App",
-      "projectPath": "C:\\Wjh\\大二下\\MOSAD\\Project\\App_HW6 - 副本\\App\\App.csproj",
+      "projectPath": "C:\\Wjh\\大二下\\MOSAD\\App\\App\\App.csproj",
       "packagesPath": "C:\\Users\\Zero\\.nuget\\packages\\",
-      "outputPath": "C:\\Wjh\\大二下\\MOSAD\\Project\\App_HW6 - 副本\\App\\obj\\",
+      "outputPath": "C:\\Wjh\\大二下\\MOSAD\\App\\App\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
