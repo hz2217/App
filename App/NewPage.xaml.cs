@@ -84,7 +84,7 @@ namespace App
             this.UpdateTile();
             if (Create.Content as string == "Create")
                 ViewModel.AddTodoItem(this.TodoItemTitle2.Text, this.TodoItemDetail.Text, this.Datepicker.Date.DateTime, this.TodoItemImage2.Source, imgStr);
-            else ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, this.TodoItemTitle2.Text, this.TodoItemDetail.Text, this.Datepicker.Date.DateTime, this.TodoItemImage2.Source, imgStr);
+            else ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, this.TodoItemTitle2.Text, this.TodoItemDetail.Text, this.Datepicker.Date.DateTime, this.TodoItemImage2.Source, imgStr, ViewModel.SelectedItem.Completed);
 
             //Frame.Navigate(typeof(MainPage), ViewModel.GetString()); // 界面导航并且传属性 ViewModel
             Frame.Navigate(typeof(MainPage)); // 界面导航并且传属性 ViewModel
@@ -115,7 +115,7 @@ namespace App
             if (ViewModel.SelectedItem != null)
             {
                 ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, ViewModel.SelectedItem.Title,
-                    ViewModel.SelectedItem.Description, ViewModel.SelectedItem.Date, ViewModel.SelectedItem.Img, imgStr); // "ms-appx:///Assets/背景3.jpg"
+                    ViewModel.SelectedItem.Description, ViewModel.SelectedItem.Date, ViewModel.SelectedItem.Img, imgStr, ViewModel.SelectedItem.Completed); // "ms-appx:///Assets/背景3.jpg"
                 //Frame.Navigate(typeof(MainPage), ViewModel.GetString());
                 Frame.Navigate(typeof(MainPage));
             }

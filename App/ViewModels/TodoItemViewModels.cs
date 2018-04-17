@@ -214,7 +214,7 @@ namespace App.Models
      * class TodoItemViewModel
      * Field: 
      * Attribute: AllItems SelectedItem1 todoItemViewModel
-     * Methods:  GetTodoItemViewModel()
+     * Methods:  GetTodoItemViewModel() TodoItemViewModel() AddTodoItem() RemoveTodoItem() UpdateTodoItem 
      */
     class TodoItemViewModel
     {
@@ -243,6 +243,13 @@ namespace App.Models
         internal TodoItem SelectedItem1 { get => selectedItem; set => selectedItem = value; }
 
         // 单例模式
+        private static int ID = 0;
+        public static string gitIdInstance()
+        {
+            ++ID;
+            return ID.ToString();
+        }
+
         private static TodoItemViewModel todoItemViewModel;
         public static TodoItemViewModel GetTodoItemViewModel()
         {
@@ -251,28 +258,13 @@ namespace App.Models
             return todoItemViewModel;
         }
 
-        public void RemoveTodoItem()
-        {
-            AllItems.Remove(this.SelectedItem1);
-            var db = App.conn;
-            using (var statement = db.Prepare("DELETE FROM todolist WHERE Id = ?;"))
-            {
-                statement.Bind(1, SelectedItem1.Id);
-                statement.Step();
-            }
-            this.SelectedItem1 = null;
-        }
-
         public TodoItemViewModel()
         {
             // 加入两个用来测试的item
             ImageSource imgSource = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/背景.jpg"));
-            this.AllItems1.Add(new Models.TodoItem("", "TA", "TA IS A GIRL", DateTime.Now, imgSource, "ms-appx:///Assets/背景.jpg"));
+            this.AllItems1.Add(new Models.TodoItem(ID, "TA", "TA IS A GIRL", DateTime.Now, imgSource, "ms-appx:///Assets/背景.jpg"));
 
-            imgSource = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/背景4.jpg"));
-            //imgSource = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(@"C:/Wjh/WallPaper/2.jpg"));
-            this.AllItems1.Add(new Models.TodoItem("", "Ten years", "To be number one", DateTime.Now, imgSource, "ms-appx:///Assets/背景4.jpg"));
-
+            // New Feat: SQlitePCL 数据库搜寻
             var db = App.conn;
             using (var statement = db.Prepare("SELECT Id, Title, Description, Time, Imguri FROM todolist"))
             {
@@ -296,41 +288,32 @@ namespace App.Models
         // 添加新的 TodoItem
         public void AddTodoItem(string title, string description, DateTime date, ImageSource img, string strImg)
         {
-            this.AllItems1.Add(new Models.TodoItem("", title, description, date, img, strImg));
-            insert("", title, description, date.ToString("yyyy-MM-dd hh:mm:ss"), strImg);
+            string num = gitIdInstance();
+            this.AllItems1.Add(new Models.TodoItem(num, title, description, date, img, strImg));
+            insert(num, title, description, date.ToString("yyyy-MM-dd hh:mm:ss"), strImg);
         }
-        public void AddTodoItem(TodoItem temp)
+        public void AddTodoItem(TodoItem str)
         {
-            //temp.GetSource(temp.StrSource);
-            this.AllItems1.Add(temp);
+            this.AllItems1.Add(str);
         }
 
         // 删除某一个 TodoItem
-        public void RemoveTodoItem(string id)
+        public void RemoveTodoItem()
         {
-            for (int i = 0; i < AllItems1.Count; i++)
+            AllItems.Remove(this.SelectedItem1);
+            var db = App.conn;
+            using (var statement = db.Prepare("DELETE FROM todolist WHERE Id = ?;"))
             {
-                if (AllItems1[i].Id == id)
-                {
-                    this.AllItems1.RemoveAt(i);
-                }
+                statement.Bind(1, SelectedItem1.Id);
+                statement.Step();
             }
             // set selectedItem to null after remove
             this.SelectedItem1 = null;
         }
+    
         // 更新
-        public void UpdateTodoItem(string id, string title, string description, DateTime date, ImageSource img, string strImg)
+        public void UpdateTodoItem(string id, string title, string description, DateTime date, ImageSource img, string strImg, bool isChecked)
         {
-            {
-                // DIY
-                //selectedItem.Id = id;
-                //selectedItem.Title = title;
-                //selectedItem.description = description;
-                //selectedItem.date = date;
-                //selectedItem.img = img;
-                // set selectedItem to null after update
-            }
-
             for (int i = 0; i < AllItems1.Count; ++i)
             {
                 if (AllItems1[i].Id == id)
@@ -340,10 +323,12 @@ namespace App.Models
                     AllItems1[i].Date = date;
                     AllItems1[i].Img = img;
                     AllItems1[i].StrSource = strImg;
+                    AllItems1[i].Completed = isChecked;
                     break;
                 }
             }
-        
+
+            // New Feat: SQlitePCL 数据库搜寻
             var db = App.conn;
             using (var statement = db.Prepare("UPDATE todolist SET Title = ?, Description = ?, Time = ?, Imguri = ? WHERE Id = ?;"))
             {
@@ -357,45 +342,7 @@ namespace App.Models
             this.SelectedItem1 = null;
         }
 
-        // 带 completed
-        public void UpdateTodoItem(string id, bool isChecked)
-        {
-            for (int i = 0; i < AllItems1.Count; ++i)
-            {
-                if (AllItems1[i].Id == id)
-                {
-                    AllItems1[i].Completed = isChecked;
-                    break;
-                }
-            }
-            this.SelectedItem1 = null;
-        }
-
-        //public string GetString()
-        //{
-        //    string sum = "";
-        //    for (int i = 0; i < allItems.Count; ++i)
-        //    {
-        //        sum += allItems[i].GetMyString();
-        //        sum += '~';
-        //    }
-        //    return sum;
-        //}
-
-        //public void SetString(string str)
-        //{
-        //    int i = 0;
-        //    while(i < str.Length)
-        //    {
-        //        string strTemp = "";
-        //        while (i < str.Length && str[i] != '~')
-        //            strTemp += str[i++];
-        //        i++;
-        //        this.allItems.Add(new TodoItem(strTemp));
-        //    }
-        //}
-
-
+        // New Feat: SQlitePCL 数据库搜寻
         public void insert(string id, string title, string description, string date, string strSource)
         {
             var db = App.conn;
