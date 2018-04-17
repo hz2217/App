@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Wjh\大二下\MOSAD\App\App\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-17T14:11:21.227</Modified>
+      <Modified>2018-04-17T14:19:29.148</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x86\Debug\App.exe">
       <PackagePath>entrypoint\App.exe</PackagePath>
-      <Modified>2018-04-17T14:11:18.413</Modified>
+      <Modified>2018-04-17T14:19:28.040</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\NuGetPackagesFallback\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.0.8\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -788,11 +788,11 @@
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-17T14:11:20.270</Modified>
+      <Modified>2018-04-17T14:19:28.543</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x86\Debug\Core\App.exe">
       <PackagePath>App.exe</PackagePath>
-      <Modified>2018-04-17T14:11:21.210</Modified>
+      <Modified>2018-04-17T14:19:29.142</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

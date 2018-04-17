@@ -29,7 +29,12 @@ namespace App.Models
         }
     }
 
-    //[Serializable]
+    /*
+     * class TodoItemBase
+     * 字段: Id Title Description Date Img StrSource Completed
+     * 属性: 
+     * Methods: TodoItem(...) GetMyString() SetMyString(string value)
+     */
     class TodoItem : TodoItemBase
     {
         private string id;
@@ -205,20 +210,37 @@ namespace App.Models
         }
     }
 
+    /*
+     * class TodoItemViewModel
+     * Field: 
+     * Attribute: AllItems SelectedItem1 todoItemViewModel
+     * Methods:  GetTodoItemViewModel()
+     */
     class TodoItemViewModel
     {
         /*
-         * 就像 TodoItem 类的一种 private 和 public 一样 为了数值双向传递
-         */
-        // 对外的 TodoItem 容器 allItems
-        private ObservableCollection<Models.TodoItem> allItems = new ObservableCollection<Models.TodoItem>();
-        // 对内的 TodoItem 容器 AllItems
-        public System.Collections.ObjectModel.ObservableCollection<Models.TodoItem> AllItems { get { return this.allItems; } }
+        * 就像 TodoItem 类的一种 private 和 public 一样 为了数值双向传递
+        */
 
-        // 对外的 选中某一项 TodoItem selectedItem
+        /*
+        * 对外的 TodoItem 容器 allItems
+        * private ObservableCollection<Models.TodoItem> allItems = new ObservableCollection<Models.TodoItem>();
+        * 对内的 TodoItem 容器 AllItems
+        * public System.Collections.ObjectModel.ObservableCollection<Models.TodoItem> AllItems { get { return this.allItems; } }
+        * 对外的 选中某一项 TodoItem selectedItem
+        * private Models.TodoItem selectedItem = default(Models.TodoItem);
+        * 对内的 选中某一项 TodoItem SelectedItem
+        * public Models.TodoItem SelectedItem { get { return selectedItem; } set { this.selectedItem = value; } }
+        */
+        // 封装 容器 allItems AllItems
+        private ObservableCollection<Models.TodoItem> allItems = new ObservableCollection<Models.TodoItem>();
+        public System.Collections.ObjectModel.ObservableCollection<Models.TodoItem> AllItems { get { return this.AllItems1; } }
+        // 选中某一项 TodoItem selectedItem SelectedItem
         private Models.TodoItem selectedItem = default(Models.TodoItem);
-        // 对内的 选中某一项 TodoItem SelectedItem
-        public Models.TodoItem SelectedItem { get { return selectedItem; } set { this.selectedItem = value; } }
+        public Models.TodoItem SelectedItem { get { return SelectedItem1; } set { this.SelectedItem1 = value; } }
+
+        internal ObservableCollection<TodoItem> AllItems1 { get => allItems; set => allItems = value; }
+        internal TodoItem SelectedItem1 { get => selectedItem; set => selectedItem = value; }
 
         // 单例模式
         private static TodoItemViewModel todoItemViewModel;
@@ -229,42 +251,28 @@ namespace App.Models
             return todoItemViewModel;
         }
 
-
-        public void insert(string id, string title, string description, string date, string strSource)
-        {
-            var db = App.conn;
-            using (var statement = db.Prepare("INSERT INTO todolist (Id, Title, Description, Time, Imguri) VALUES (?, ?, ?, ?, ?);"))
-            {
-                statement.Bind(1, id);
-                statement.Bind(2, title);
-                statement.Bind(3, description);
-                statement.Bind(4, date);
-                statement.Bind(5, strSource);
-                statement.Step();
-            }
-        }
-
         public void RemoveTodoItem()
         {
-            AllItems.Remove(this.selectedItem);
+            AllItems.Remove(this.SelectedItem1);
             var db = App.conn;
             using (var statement = db.Prepare("DELETE FROM todolist WHERE Id = ?;"))
             {
-                statement.Bind(1, selectedItem.Id);
+                statement.Bind(1, SelectedItem1.Id);
                 statement.Step();
             }
-            this.selectedItem = null;
+            this.SelectedItem1 = null;
         }
+
         public TodoItemViewModel()
-        { 
+        {
             // 加入两个用来测试的item
             ImageSource imgSource = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/背景.jpg"));
-            this.allItems.Add(new Models.TodoItem("", "TA", "TA IS A GIRL", DateTime.Now, imgSource, "ms-appx:///Assets/背景.jpg"));
+            this.AllItems1.Add(new Models.TodoItem("", "TA", "TA IS A GIRL", DateTime.Now, imgSource, "ms-appx:///Assets/背景.jpg"));
 
             imgSource = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/背景4.jpg"));
             //imgSource = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(@"C:/Wjh/WallPaper/2.jpg"));
-            this.allItems.Add(new Models.TodoItem("", "Ten years", "To be number one", DateTime.Now, imgSource, "ms-appx:///Assets/背景4.jpg"));
-        
+            this.AllItems1.Add(new Models.TodoItem("", "Ten years", "To be number one", DateTime.Now, imgSource, "ms-appx:///Assets/背景4.jpg"));
+
             var db = App.conn;
             using (var statement = db.Prepare("SELECT Id, Title, Description, Time, Imguri FROM todolist"))
             {
@@ -284,30 +292,31 @@ namespace App.Models
                 }
             }
         }
+
         // 添加新的 TodoItem
         public void AddTodoItem(string title, string description, DateTime date, ImageSource img, string strImg)
         {
-            this.allItems.Add(new Models.TodoItem("", title, description, date, img, strImg));
+            this.AllItems1.Add(new Models.TodoItem("", title, description, date, img, strImg));
             insert("", title, description, date.ToString("yyyy-MM-dd hh:mm:ss"), strImg);
         }
         public void AddTodoItem(TodoItem temp)
         {
             //temp.GetSource(temp.StrSource);
-            this.allItems.Add(temp);
+            this.AllItems1.Add(temp);
         }
 
         // 删除某一个 TodoItem
         public void RemoveTodoItem(string id)
         {
-            for (int i = 0; i < allItems.Count; i++)
+            for (int i = 0; i < AllItems1.Count; i++)
             {
-                if (allItems[i].Id == id)
+                if (AllItems1[i].Id == id)
                 {
-                    this.allItems.RemoveAt(i);
+                    this.AllItems1.RemoveAt(i);
                 }
             }
             // set selectedItem to null after remove
-            this.selectedItem = null;
+            this.SelectedItem1 = null;
         }
         // 更新
         public void UpdateTodoItem(string id, string title, string description, DateTime date, ImageSource img, string strImg)
@@ -322,15 +331,15 @@ namespace App.Models
                 // set selectedItem to null after update
             }
 
-            for (int i = 0; i < allItems.Count; ++i)
+            for (int i = 0; i < AllItems1.Count; ++i)
             {
-                if (allItems[i].Id == id)
+                if (AllItems1[i].Id == id)
                 {
-                    allItems[i].Title = title;
-                    allItems[i].Description = description;
-                    allItems[i].Date = date;
-                    allItems[i].Img = img;
-                    allItems[i].StrSource = strImg;
+                    AllItems1[i].Title = title;
+                    AllItems1[i].Description = description;
+                    AllItems1[i].Date = date;
+                    AllItems1[i].Img = img;
+                    AllItems1[i].StrSource = strImg;
                     break;
                 }
             }
@@ -338,28 +347,28 @@ namespace App.Models
             var db = App.conn;
             using (var statement = db.Prepare("UPDATE todolist SET Title = ?, Description = ?, Time = ?, Imguri = ? WHERE Id = ?;"))
             {
-                statement.Bind(1, selectedItem.Id);
-                statement.Bind(2, selectedItem.Title);
-                statement.Bind(3, selectedItem.Description);
-                statement.Bind(4, selectedItem.Date.ToString("yyyy-MM-dd hh:mm:ss"));
-                statement.Bind(5, selectedItem.StrSource);
+                statement.Bind(1, SelectedItem1.Id);
+                statement.Bind(2, SelectedItem1.Title);
+                statement.Bind(3, SelectedItem1.Description);
+                statement.Bind(4, SelectedItem1.Date.ToString("yyyy-MM-dd hh:mm:ss"));
+                statement.Bind(5, SelectedItem1.StrSource);
                 statement.Step();
             }
-            this.selectedItem = null;
+            this.SelectedItem1 = null;
         }
 
         // 带 completed
         public void UpdateTodoItem(string id, bool isChecked)
         {
-            for (int i = 0; i < allItems.Count; ++i)
+            for (int i = 0; i < AllItems1.Count; ++i)
             {
-                if (allItems[i].Id == id)
+                if (AllItems1[i].Id == id)
                 {
-                    allItems[i].Completed = isChecked;
+                    AllItems1[i].Completed = isChecked;
                     break;
                 }
             }
-            this.selectedItem = null;
+            this.SelectedItem1 = null;
         }
 
         //public string GetString()
@@ -385,6 +394,21 @@ namespace App.Models
         //        this.allItems.Add(new TodoItem(strTemp));
         //    }
         //}
+
+
+        public void insert(string id, string title, string description, string date, string strSource)
+        {
+            var db = App.conn;
+            using (var statement = db.Prepare("INSERT INTO todolist (Id, Title, Description, Time, Imguri) VALUES (?, ?, ?, ?, ?);"))
+            {
+                statement.Bind(1, id);
+                statement.Bind(2, title);
+                statement.Bind(3, description);
+                statement.Bind(4, date);
+                statement.Bind(5, strSource);
+                statement.Step();
+            }
+        }
 
     }
 }
