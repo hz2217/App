@@ -79,6 +79,7 @@ namespace App
         public MainPage()
         {
             this.InitializeComponent();
+            
             this.ViewModel = new Models.TodoItemViewModel();
         }
 
@@ -124,7 +125,11 @@ namespace App
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            DataTransferManager.GetForCurrentView().DataRequested -= OnShareDataRequested;
+            DataTransferManager.GetForCurrentView().DataRequested += OnShareDataRequested;
+            if (e.Parameter.GetType() == typeof(Models.TodoItemViewModel))
+            {
+                this.ViewModel = (Models.TodoItemViewModel)(e.Parameter);
+            }
             //base.OnNavigatedTo(e); // why add
             //if (e.NavigationMode == NavigationMode.New)
             //{
@@ -202,7 +207,7 @@ namespace App
             var photoFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri(ShareItem.StrSource));
             dp.Properties.Title = ShareItem.Title;
             dp.Properties.Description = ShareItem.Description;
-            dp.SetText("done" + ShareItem.Title);
+            dp.SetText("done" + ShareItem.Description);
             dp.SetStorageItems(new List<StorageFile> { photoFile });
             deferral.Complete();
         }

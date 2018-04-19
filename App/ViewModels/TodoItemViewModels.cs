@@ -274,10 +274,12 @@ namespace App.Models
                 {
                     for (int num = 0; num < statement.DataCount; num += 5)
                     {
-                        AllItems.Add(new Models.TodoItem((string)statement[num], (string)statement[num + 1], (string)statement[num + 2], Convert.ToDateTime((string)statement[num + 3]), (string)statement[num + 4]));
+                        this.allItems.Add(new Models.TodoItem((string)statement[num], (string)statement[num + 1], (string)statement[num + 2], Convert.ToDateTime((string)statement[num + 3]), (string)statement[num + 4]));
                     }
+                    //this.allItems.Add(new Models.TodoItem((string)statement[1], (string)statement[2], (string)statement[3], Convert.ToDateTime((string)statement[4]), (string)statement[5]));
+                    r = statement.Step();
                 }
-                r = statement.Step();
+                
                 if (SQLiteResult.DONE == r)
                 {
 
@@ -294,7 +296,9 @@ namespace App.Models
         }
         public void AddTodoItem(TodoItem str)
         {
+            string num = gitIdInstance();
             this.AllItems1.Add(str);
+            insert(num, str.Title, str.Description, str.Date.ToString("yyyy-MM-dd hh:mm:ss"), str.StrSource);
         }
 
         // 删除某一个 TodoItem

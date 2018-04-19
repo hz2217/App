@@ -156,8 +156,8 @@
                                     <AppBarButton.Flyout>
                                         <MenuFlyout>
                                             <MenuFlyoutItem Text="Edit"/>
-                                            <MenuFlyoutItem Text="Delete"/>
-                                            <MenuFlyoutItem x:ConnectionId='25' Text="Share"                    />
+                                            <MenuFlyoutItem x:ConnectionId='25' Text="Delete"                     />
+                                            <MenuFlyoutItem x:ConnectionId='26' Text="Share"                    />
                                         </MenuFlyout>
                                     </AppBarButton.Flyout>
                                 </AppBarButton>

@@ -1,5 +1,6 @@
 ﻿using SQLitePCL;
 using System;
+using System.IO;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Storage;
@@ -24,6 +25,7 @@ namespace App
             this.InitializeComponent();
             // 在App.xaml.cs文件确认OnSuspending事件是否注册了
             this.Suspending += OnSuspending;
+            this.LoadDatabase();
         }
 
         public bool issuspend = false;
