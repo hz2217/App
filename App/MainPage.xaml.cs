@@ -291,14 +291,14 @@ namespace App
             //this.line1.Visibility = Visibility.Visible;
             //bool isChecked = true;
             if (ViewModel.SelectedItem != null)
-                ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, ViewModel.SelectedItem.Title, ViewModel.SelectedItem.Description, ViewModel.SelectedItem.Date, ViewModel.SelectedItem.Img, ViewModel.SelectedItem.StrSource, true);
+                ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, ViewModel.SelectedItem.Title, ViewModel.SelectedItem.Description, ViewModel.SelectedItem.Date, ViewModel.SelectedItem.Img, ViewModel.SelectedItem.Path, true);
         }
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             //this.line1.Visibility = Visibility.Collapsed;
             //bool isChecked = false;
             if (ViewModel.SelectedItem != null)
-                ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, ViewModel.SelectedItem.Title, ViewModel.SelectedItem.Description, ViewModel.SelectedItem.Date, ViewModel.SelectedItem.Img, ViewModel.SelectedItem.StrSource, false);
+                ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, ViewModel.SelectedItem.Title, ViewModel.SelectedItem.Description, ViewModel.SelectedItem.Date, ViewModel.SelectedItem.Img, ViewModel.SelectedItem.Path, false);
         }
 
         private void ScrollVier_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
@@ -318,7 +318,7 @@ namespace App
             {
                 Create.Content = "Create";
                 if (!Check()) return;
-                ViewModel.AddTodoItem(this.TodoItemTitle2.Text, this.TodoItemDetail.Text, this.Datepicker.Date.DateTime, this.TodoItemImage2.ImageSource, imgStr);
+                ViewModel.AddTodoItem(this.TodoItemTitle2.Text, this.TodoItemDetail.Text, this.Datepicker.Date.DateTime, imgStr);
             }
         }
 

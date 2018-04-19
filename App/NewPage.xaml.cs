@@ -82,7 +82,7 @@ namespace App
             if (!Check()) return;
             this.UpdateTile();
             if (Create.Content as string == "Create")
-                ViewModel.AddTodoItem(this.TodoItemTitle2.Text, this.TodoItemDetail.Text, this.Datepicker.Date.DateTime, this.TodoItemImage2.Source, imgStr);
+                ViewModel.AddTodoItem(this.TodoItemTitle2.Text, this.TodoItemDetail.Text, this.Datepicker.Date.DateTime, imgStr);
             else ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, this.TodoItemTitle2.Text, this.TodoItemDetail.Text, this.Datepicker.Date.DateTime, this.TodoItemImage2.Source, imgStr, ViewModel.SelectedItem.Completed);
 
             //Frame.Navigate(typeof(MainPage), ViewModel.GetString()); // 界面导航并且传属性 ViewModel
