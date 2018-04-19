@@ -100,7 +100,7 @@
                 <!--滚动列表-->
                 <ListView.ItemTemplate>
                     <DataTemplate                         >
-                        <UserControl x:ConnectionId='18'>
+                        <UserControl x:ConnectionId='20'>
                             <Grid Height="120">
                                 <!--状态控制-->
                                 <VisualStateManager.VisualStateGroups>
@@ -130,11 +130,11 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!--选中属性-->
-                                <CheckBox x:ConnectionId='19' x:Name="CheckBox"
+                                <CheckBox x:ConnectionId='21' x:Name="CheckBox"
                                           Grid.Column="0"
                                                                                                                                                />
                                 <!--图片属性-->
-                                <Image x:ConnectionId='20' x:Name="TodoItemImage"                                   
+                                <Image x:ConnectionId='22' x:Name="TodoItemImage"                                   
                                        Grid.Column="1"
                                        Height="67.5" Width="120" Visibility="Collapsed"/>
                                 <!--横线属性-->
@@ -144,12 +144,12 @@
                                       Visibility="{Binding Path=IsChecked, ElementName=CheckBox, Mode=OneWay, Converter={StaticResource ResourceKey=converter}}"/>
                                 <!--   object value,   Type targetType,     object parameter, string language-->
                                 <!--标题属性-->
-                                <TextBlock x:ConnectionId='21' x:Name="TodoItemTitle"                                   
+                                <TextBlock x:ConnectionId='23' x:Name="TodoItemTitle"                                   
                                            Grid.Column="2" Margin="50,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
                                            Height="20" Width="150"
                                            Style="{StaticResource MyTextBlockStyle}"/>
                                 <!--设置按钮属性-->
-                                <AppBarButton x:ConnectionId='22' Icon="Setting" IsCompact="True"
+                                <AppBarButton x:ConnectionId='24' Icon="Setting" IsCompact="True"
                                               Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" 
                                               Height="50" Width="50"
                                                                           >
@@ -157,7 +157,7 @@
                                         <MenuFlyout>
                                             <MenuFlyoutItem Text="Edit"/>
                                             <MenuFlyoutItem Text="Delete"/>
-                                            <MenuFlyoutItem x:ConnectionId='23' Text="Share"                    />
+                                            <MenuFlyoutItem x:ConnectionId='25' Text="Share"                    />
                                         </MenuFlyout>
                                     </AppBarButton.Flyout>
                                 </AppBarButton>
@@ -172,17 +172,22 @@
                   Grid.Column="1">
                 <!--滚动设置-->
                 <ScrollViewer x:ConnectionId='9'                                     >
-                    <!--每一项五行五属性一功能-->
                     
                     <StackPanel HorizontalAlignment="Center"
-                                Width="400" >
-                      
-                        <!--<Image x:Name="TodoItemImage2" Source="Assets/背景.jpg"
-                            Margin="0,50,0,0"
-                            Width="400" Height="225" Opacity="0.7" Stretch="Fill"/>-->
+                                Width="400">
+                        <!-- 6.1: 添加搜索图标-->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:ConnectionId='18' x:Name="SearchTextBox"
+                               Height="30" Width="150"
+                               Margin="220,0,0,0"
+                               FontSize="16"/>
+                            <Button x:ConnectionId='19' Name="Search_Button"
+                                    Height="30" Width="30"
+                                    Margin="0,0,0,0"
+                                                              />
+                        </StackPanel>
 
-                        <!-- 这一段整体是为了添加滑动显示图片  Rectangle and Slider -->
-
+                        <!--每一项五行五属性一功能-->
                         <!--图片属性-->
                         <Rectangle Width="400" Height="225" Margin="4" RenderTransformOrigin="0.5,0.5">
                             <Rectangle.Fill>

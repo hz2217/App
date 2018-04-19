@@ -172,17 +172,22 @@
                   Grid.Column="1">
                 <!--滚动设置-->
                 <ScrollViewer ViewChanged="ScrollVier_ViewChanged">
-                    <!--每一项五行五属性一功能-->
                     
                     <StackPanel HorizontalAlignment="Center"
-                                Width="400" >
-                      
-                        <!--<Image x:Name="TodoItemImage2" Source="Assets/背景.jpg"
-                            Margin="0,50,0,0"
-                            Width="400" Height="225" Opacity="0.7" Stretch="Fill"/>-->
+                                Width="400">
+                        <!-- 6.1: 添加搜索图标-->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="SearchTextBox"
+                                     Height="30" Width="150"
+                                     Margin="220,0,0,0"
+                                     FontSize="16"/>
+                            <Button Name="SearchButton"
+                                    Height="30" Width="30"
+                                    Margin="0,0,0,0"
+                                    Click="SearchButton_Click"/>
+                        </StackPanel>
 
-                        <!-- 这一段整体是为了添加滑动显示图片  Rectangle and Slider -->
-
+                        <!--每一项五行五属性一功能-->
                         <!--图片属性-->
                         <Rectangle Width="400" Height="225" Margin="4" RenderTransformOrigin="0.5,0.5">
                             <Rectangle.Fill>
