@@ -37,7 +37,6 @@ namespace App
         //protected override System.Threading.Tasks.Task OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            LoadDatabase();
 
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
             // 不要在窗口已包含内容时重复应用程序初始化，
@@ -136,23 +135,6 @@ namespace App
             {
                 e.Handled = true;
                 rootFrame.GoBack();
-            }
-        }
-
-        public static SQLiteConnection conn;
-        private void LoadDatabase()
-        {
-            conn = new SQLiteConnection("todolist.db");
-            /*string sql = @"CREATE TABLE IF NOT EXISTS                        
-                          todolist (Id      INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                          Title    VARCHAR( 140 ),                                  
-                          Description   VARCHAR( 140 ),                          
-                          Time VARCHAR( 140 )  
-                          Imguri VARCHAR(140) );";*/
-            string sql = "CREATE TABLE IF NOT EXISTS todolist (Id VARCHAR(140) PRIMARY KEY, Title VARCHAR(140), Description VARCHAR(140), Time VARCHAR(140), Imguri VARCHAR(140));";
-            using (var statement = conn.Prepare(sql))
-            {
-                statement.Step();
             }
         }
     }

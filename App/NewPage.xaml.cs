@@ -23,10 +23,9 @@ namespace App
     public sealed partial class NewPage : Page
     {
         public string imgStr;
-        public NewPage()
-        {
-            this.InitializeComponent();
 
+        public NewPage() {
+            this.InitializeComponent();
         }
 
         /*
@@ -80,7 +79,7 @@ namespace App
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!check()) return;
+            if (!Check()) return;
             this.UpdateTile();
             if (Create.Content as string == "Create")
                 ViewModel.AddTodoItem(this.TodoItemTitle2.Text, this.TodoItemDetail.Text, this.Datepicker.Date.DateTime, this.TodoItemImage2.Source, imgStr);
@@ -89,27 +88,6 @@ namespace App
             //Frame.Navigate(typeof(MainPage), ViewModel.GetString()); // 界面导航并且传属性 ViewModel
             Frame.Navigate(typeof(MainPage)); // 界面导航并且传属性 ViewModel
         }
-
-        private void DeleteButton_Clicked(object sender, RoutedEventArgs e)
-        {
-            if (ViewModel.SelectedItem != null)
-            {
-                ViewModel.RemoveTodoItem(ViewModel.SelectedItem.Id);
-                Frame.Navigate(typeof(MainPage));
-                //Frame.Navigate(typeof(MainPage), ViewModel.GetString());
-            }
-        }
-
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (ViewModel.SelectedItem != null)
-            {
-                this.TodoItemTitle2.Text = "";
-                this.TodoItemDetail.Text = "";
-                this.Datepicker.Date = DateTime.Now;
-            }
-        }
-
         private void UpdateButton_Clicked(object sender, RoutedEventArgs e)
         {
             if (ViewModel.SelectedItem != null)
@@ -120,10 +98,28 @@ namespace App
                 Frame.Navigate(typeof(MainPage));
             }
         }
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.SelectedItem != null)
+            {
+                this.TodoItemTitle2.Text = "";
+                this.TodoItemDetail.Text = "";
+                this.Datepicker.Date = DateTime.Now;
+            }
+        }
+        private void DeleteButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.SelectedItem != null)
+            {
+                ViewModel.RemoveTodoItem(ViewModel.SelectedItem.Id);
+                Frame.Navigate(typeof(MainPage));
+                //Frame.Navigate(typeof(MainPage), ViewModel.GetString());
+            }
+        }
 
         private void ScrollVier_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
-            // Frame.Navigate(typeof(MainPage));
+
         }
 
         /*
@@ -202,12 +198,12 @@ namespace App
             }
         }
 
-        private bool check()
+        private bool Check()
         {
-            return check(this.TodoItemTitle2.Text, "请完善Title!") && check(this.TodoItemDetail.Text, "请完善Detail!")
-                   && checkDate();
+            return CheckText(this.TodoItemTitle2.Text, "请完善Title!") && CheckText(this.TodoItemDetail.Text, "请完善Detail!")
+                   && CheckDate();
         }
-        private bool check(string text, string errorMessage)
+        private bool CheckText(string text, string errorMessage)
         {
             if (string.IsNullOrEmpty(text))
             {
@@ -216,7 +212,7 @@ namespace App
             }
             return true;
         }
-        private bool checkDate()
+        private bool CheckDate()
         {
             if (this.Datepicker.Date > DateTime.Now)
             {

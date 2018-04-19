@@ -47,12 +47,6 @@
       <RootProperty Name="Height" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Style" />
-      <RootProperty Name="Name" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="Opacity" />
-      <RootProperty Name="PlaceholderText" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Setter">
       <RootProperty Name="Property" />
@@ -71,7 +65,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Icon" />
       <RootProperty Name="Label" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="IsCompact" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
@@ -130,7 +123,6 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Width" />
       <RootProperty Name="Children" />
-      <RootProperty Name="Orientation" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="Width" />

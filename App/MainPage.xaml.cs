@@ -73,13 +73,12 @@ namespace App
         // 单例模式 转换
         Models.TodoItemViewModel ViewModel = Models.TodoItemViewModel.GetTodoItemViewModel();
         //Models.TodoItemViewModel ViewModel { get; set; }
-        string imgStr = "ms-appx:///Assets/背景.jpg";
+        public string imgStr = "ms-appx:///Assets/背景.jpg";
         Models.TodoItem ShareItem;
 
         public MainPage()
         {
             this.InitializeComponent();
-            this.ViewModel = new Models.TodoItemViewModel();
         }
 
         public async Task<BitmapImage> GetImageAsync(StorageFile storageFile)
@@ -89,7 +88,6 @@ namespace App
             bitmapImage.SetSource(stream);
             return bitmapImage;
         }
-
         private async void SelectButton_Click(object sender, RoutedEventArgs e)
         {
             FileOpenPicker picker = new FileOpenPicker(); // 声名一个 打开文件的类
@@ -200,24 +198,13 @@ namespace App
                 ////}
             }
         }
-        async void OnShareDataRequested(DataTransferManager sender, DataRequestedEventArgs args)
-        {
-            var dp = args.Request.Data;
-            var deferral = args.Request.GetDeferral();
-            var photoFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri(ShareItem.StrSource));
-            dp.Properties.Title = ShareItem.Title;
-            dp.Properties.Description = ShareItem.Description;
-            dp.SetText("done" + ShareItem.Title);
-            dp.SetStorageItems(new List<StorageFile> { photoFile });
-            deferral.Complete();
-        }
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            //DataTransferManager.GetForCurrentView().DataRequested -= OnShareDataRequested;
             bool suspending = ((App)App.Current).issuspend;
             if (suspending)
             {
                 ApplicationDataCompositeValue composite = new ApplicationDataCompositeValue();
+                { 
                 ////composite["TodoItemImage"] = TodoItemImage.Source;
                 //composite["TodoItemTitle"] = TodoItemTitle.Text;
                 ////composite["CheckBox"] = (string)CheckBox.IsChecked;
@@ -238,6 +225,7 @@ namespace App
                 //        formatter.Serialize(fs, ViewModel.AllItems[i]);
                 //    }
                 //}
+                }
                 // 第三种尝试方法
                 for (int i = 0; i < ViewModel.AllItems.Count; ++i)
                 {
@@ -289,6 +277,10 @@ namespace App
                 Frame.Navigate(typeof(NewPage));
                 //Frame.Navigate(typeof(NewPage), ViewModel.GetString());
             }
+        }
+        private void AddAppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
         private void MenuFlyoutItem_Click(object sender, RoutedEventArgs e)
         {
@@ -343,7 +335,7 @@ namespace App
         private bool Check()
         {
             return CheckText(this.TodoItemTitle2.Text, "请完善Title!") && CheckText(this.TodoItemDetail.Text, "请完善Detail!")
-                   && checkDate();
+                   && CheckDate();
         }
         private bool CheckText(string text, string errorMessage)
         {
@@ -354,7 +346,7 @@ namespace App
             }
             return true;
         }
-        private bool checkDate()
+        private bool CheckDate()
         {
             if (this.Datepicker.Date > DateTime.Now)
             {
@@ -442,43 +434,8 @@ namespace App
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.SelectedItem = (Models.TodoItem)((MenuFlyoutItem)sender).DataContext;
-            var db = App.conn;
-            if (ViewModel.SelectedItem != null)
-            {
-                using (var statement = db.Prepare("DELETE FROM todolist WHERE Id = ?"))
-                {
-                    statement.Bind(1, ViewModel.SelectedItem.Id);
-                    statement.Step();
-                }
-                ViewModel.AllItems.Remove(ViewModel.SelectedItem);
-            }
+            ViewModel.RemoveTodoItem(ViewModel.SelectedItem.Id);
             ViewModel.SelectedItem = null;
-        }
-        private async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
-        {
-            var db = App.conn;
-            using (var statement = db.Prepare("SELECT Title, Description, Time FROM todolist WHERE Title = ? OR Description = ? OR Time = ?"))
-            {
-                StringBuilder result = new StringBuilder();
-                statement.Bind(1, SearchBox.Text);
-                statement.Bind(2, SearchBox.Text);
-                statement.Bind(3, SearchBox.Text);
-                SearchBox.Text = "";
-                SQLiteResult r = statement.Step();
-                while (SQLiteResult.ROW == r)
-                {
-                    result.Append("Title : " + (string)statement[0] + " Description : " + (string)statement[1] + " Time : " + (string)statement[2] + "\n");
-                    r = statement.Step();
-                }
-                if (SQLiteResult.DONE == r)
-                {
-                    var dialog = new MessageDialog(result.ToString())
-                    {
-                        Title = "搜索结果"
-                    };
-                    await dialog.ShowAsync();
-                }
-            }
         }
     }
 }
