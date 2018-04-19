@@ -1,4 +1,4 @@
-﻿using SQLitePCL;
+﻿using SQLitePCL;                        // SQLitePCL 轻量级数据库 引用
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -10,11 +10,18 @@ using Windows.UI.Xaml.Navigation;
 
 namespace App
 {
+    /* class App
+     * Field: issuspend conn
+     * Attribute:
+     * Methods:  App() OnLaunched OnSuspending OnNavigationFailed OnNavigated OnBackRequested LoadDatabase
+     */
     /// <summary>
     /// 提供特定于应用程序的行为，以补充默认的应用程序类。
     /// </summary>
     sealed partial class App : Application
     {
+        public bool issuspend = false;
+
         /// <summary>
         /// 初始化单一实例应用程序对象。这是执行的创作代码的第一行，
         /// 已执行，逻辑上等同于 main() 或 WinMain()。
@@ -25,8 +32,6 @@ namespace App
             // 在App.xaml.cs文件确认OnSuspending事件是否注册了
             this.Suspending += OnSuspending;
         }
-
-        public bool issuspend = false;
 
         /// <summary>
         /// 在应用程序由最终用户正常启动时进行调用。
@@ -61,10 +66,6 @@ namespace App
                     {
                         rootFrame.SetNavigationState((string)ApplicationData.Current.LocalSettings.Values["NavigationState"]);
                     }
-                    //if (ApplicationData.Current.LocalSettings.Values.ContainsKey("NavigationState1"))
-                    //{
-                    //    rootFrame.SetNavigationState((string)ApplicationData.Current.LocalSettings.Values["NavigationState1"]);
-                    //}
                 }
 
                 // 将框架放在当前窗口中
@@ -139,16 +140,11 @@ namespace App
             }
         }
 
+        // New Feat: SQlitePCL 数据库搜寻
         public static SQLiteConnection conn;
         private void LoadDatabase()
         {
             conn = new SQLiteConnection("todolist.db");
-            /*string sql = @"CREATE TABLE IF NOT EXISTS                        
-                          todolist (Id      INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                          Title    VARCHAR( 140 ),                                  
-                          Description   VARCHAR( 140 ),                          
-                          Time VARCHAR( 140 )  
-                          Imguri VARCHAR(140) );";*/
             string sql = "CREATE TABLE IF NOT EXISTS todolist (Id VARCHAR(140) PRIMARY KEY, Title VARCHAR(140), Description VARCHAR(140), Time VARCHAR(140), Imguri VARCHAR(140));";
             using (var statement = conn.Prepare(sql))
             {

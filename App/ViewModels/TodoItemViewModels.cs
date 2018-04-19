@@ -210,11 +210,10 @@ namespace App.Models
         }
     }
 
-    /*
-     * class TodoItemViewModel
+    /* class TodoItemViewModel
      * Field: 
      * Attribute: AllItems SelectedItem1 todoItemViewModel
-     * Methods:  GetTodoItemViewModel() TodoItemViewModel() AddTodoItem() RemoveTodoItem() UpdateTodoItem 
+     * Methods:  GetTodoItemViewModel() TodoItemViewModel() AddTodoItem() RemoveTodoItem() UpdateTodoItem insert
      */
     class TodoItemViewModel
     {
@@ -312,7 +311,11 @@ namespace App.Models
         }
         public void RemoveTodoItem(string id)
         {
+<<<<<<< HEAD
             for (int k = 0; k < AllItems.Count; ++k)
+=======
+            for(int k = 0; k < AllItems.Count; ++k)
+>>>>>>> origin/master
             {
                 if (AllItems[k].Id == id)
                 {
