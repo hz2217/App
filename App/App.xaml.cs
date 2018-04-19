@@ -1,6 +1,8 @@
-﻿using SQLitePCL;
+﻿using App.Models;
+using SQLitePCL;
 using System;
 using System.IO;
+using System.Text;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Storage;
@@ -25,6 +27,8 @@ namespace App
             this.InitializeComponent();
             // 在App.xaml.cs文件确认OnSuspending事件是否注册了
             this.Suspending += OnSuspending;
+            // 6.3 数据库初始化
+            AppDatabase.GetDbConnection();
         }
 
         public bool issuspend = false;
@@ -35,7 +39,6 @@ namespace App
         /// </summary>
         /// <param name="e">有关启动请求和过程的详细信息。</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
-        //protected override System.Threading.Tasks.Task OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -61,12 +64,7 @@ namespace App
                     {
                         rootFrame.SetNavigationState((string)ApplicationData.Current.LocalSettings.Values["NavigationState"]);
                     }
-                    //if (ApplicationData.Current.LocalSettings.Values.ContainsKey("NavigationState1"))
-                    //{
-                    //    rootFrame.SetNavigationState((string)ApplicationData.Current.LocalSettings.Values["NavigationState1"]);
-                    //}
                 }
-
                 // 将框架放在当前窗口中
                 Window.Current.Content = rootFrame;
             }
@@ -151,18 +149,19 @@ namespace App
         public static String SQL_UPDATE = "UPDATE " + TABLE_NAME + " SET Title = ?,Details = ?,DueDate = ?,Path=? WHERE Title = ?";
         public static String SQL_DELETE = "DELETE FROM " + TABLE_NAME + " WHERE Title = ? AND Details = ? AND DueDate = ?";
         public static String SQL_SEARCH = "SELECT Title,Details,DueDate FROM " + TABLE_NAME + " WHERE Title LIKE ? OR Details LIKE ? OR DueDate LIKE ?";
-        public static String SQL_UPDATE_COMPLETE = "UPDATE " + TABLE_NAME + " SET Complete = ? WHERE Title = ?";
+        public static String SQL_UPDATE_COMPLETE = "UPDATE " + TABLE_NAME + " SET Complete = ? WHERE Title = ?"; 
 
         public static class AppDatabase
         {
             /// <summary>
             /// 数据库文件所在路径，这里使用 LocalFolder，数据库文件名叫 App.db
             /// </summary>
+            private static SQLiteConnection _connection;
             public readonly static string DbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, DB_NAME);
             public static SQLiteConnection GetDbConnection()
             {
                 // 连接数据库，如果数据库文件不存在则创建一个空数据库 
-                var _connection = new SQLiteConnection(DbPath);
+                _connection = new SQLiteConnection(DbPath);
                 // 通过 SQL_CREATE_TABLE 语句创建表格
                 using (var statement = _connection.Prepare(SQL_CREATE_TABLE))
                 {
@@ -171,19 +170,12 @@ namespace App
                 return _connection;
             }
 
-            private static int ID = 1;
-            public static string gitIdInstance()
-            {
-                ++ID;
-                return ID.ToString();
-            }
-
-            public static void Insert(string Title, string Detail, DateTime Date, string path)
+            public static void Insert(string Id, string Title, string Detail, DateTime Date, string path)
             {
                 var _connection = GetDbConnection();
                 using (var statement = _connection.Prepare(SQL_INSERT))
                 {
-                    statement.Bind(1, gitIdInstance());
+                    statement.Bind(1, Id);
                     statement.Bind(2, Title);
                     statement.Bind(3, Detail);
                     statement.Bind(4, Date.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -214,12 +206,14 @@ namespace App
             public static string Query(string dataQuery)
             {
                 String result = String.Empty;
-                var _connection = GetDbConnection();
-                using (var statement = _connection.Prepare(SQL_QUERY_VALUE))
+                StringBuilder DataQuery = new StringBuilder("%%");
+                DataQuery.Insert(1, dataQuery);
+                var db = AppDatabase.GetDbConnection();
+                using (var statement = db.Prepare(App.SQL_SEARCH))
                 {
-                    statement.Bind(1, dataQuery);
-                    statement.Bind(2, dataQuery);
-                    statement.Bind(3, dataQuery);
+                    statement.Bind(1, DataQuery.ToString());
+                    statement.Bind(2, DataQuery.ToString());
+                    statement.Bind(3, DataQuery.ToString());
                     while (SQLiteResult.ROW == statement.Step())
                     {
                         result += "| " + statement[0].ToString() + " ";
@@ -231,40 +225,36 @@ namespace App
             }
         }
 
-        private async void BtnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            string name = txtAddName.Text;
-            using (var conn = AppDatabase.GetDbConnection())
-            {
-                // 需要添加的 Person 对象。
-                var addPerson = new Person() { Name = name };
+        //private async void BtnAdd_Click(object sender, RoutedEventArgs e)
+        //{
+        //    string name = txtAddName.Text;
+        //    using (var conn = AppDatabase.GetDbConnection())
+        //    {
+        //        // 需要添加的 Person 对象。
+        //        var addPerson = new Person() { Name = name };
 
-                // 受影响行数。
-                var count = conn.Insert(addPerson);
+        //        // 受影响行数。
+        //        var count = conn.Insert(addPerson);
 
-                string msg = $"新增的 Person 对象的 Id 为 {addPerson.Id}，Name 为 {addPerson.Name}";
-                await new MessageDialog(msg).ShowAsync();
-            }
-        }
+        //        string msg = $"新增的 Person 对象的 Id 为 {addPerson.Id}，Name 为 {addPerson.Name}";
+        //        await new MessageDialog(msg).ShowAsync();
+        //    }
+        //}
 
-        private async void BtnGetAll_Click(object sender, RoutedEventArgs e)
-        {
-            using (var conn = AppDatabase.GetDbConnection())
-            {
-                StringBuilder msg = new StringBuilder();
-                var dbPerson = conn.Table<Person>();
-                msg.AppendLine($"数据库中总共 {dbPerson.Count()} 个 Person 对象。");
-                foreach (var person in dbPerson)
-                {
-                    msg.AppendLine($"Id：{person.Id}；Name：{person.Name}");
-                }
+        //private async void BtnGetAll_Click(object sender, RoutedEventArgs e)
+        //{
+        //    using (var conn = AppDatabase.GetDbConnection())
+        //    {
+        //        StringBuilder msg = new StringBuilder();
+        //        var dbPerson = conn.Table<Person>();
+        //        msg.AppendLine($"数据库中总共 {dbPerson.Count()} 个 Person 对象。");
+        //        foreach (var person in dbPerson)
+        //        {
+        //            msg.AppendLine($"Id：{person.Id}；Name：{person.Name}");
+        //        }
 
-                await new MessageDialog(msg.ToString()).ShowAsync();
-            }
-        }
-        void LoadDatebase()
-        {
-
-        }
+        //        await new MessageDialog(msg.ToString()).ShowAsync();
+        //    }
+        //}
     }
 }

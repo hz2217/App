@@ -127,10 +127,17 @@ namespace App.Models
         {
 
         }
-
-        public TodoItem(string id, string title, string description, DateTime date, string strImg)
+        // 6.3: ID 控制
+        private static int ID = 0;
+        public static string gitIdInstance()
         {
-            this.Id = id;
+            ++ID;
+            return ID.ToString();
+        }
+
+        public TodoItem(string unUsed, string title, string description, DateTime date, string strImg)
+        {
+            this.Id = gitIdInstance();
             this.Title = title;
             this.description = description;
             this.date = date;
@@ -192,3 +199,4 @@ namespace App.Models
         }
     }
 }
+ 

@@ -4,9 +4,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Text;
 using Windows.Storage;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using static App.App;
 
 namespace App.Models
 {
@@ -41,17 +43,37 @@ namespace App.Models
             return todoItemViewModel;
         }
 
+        // 6.3 从数据库启动 加载数据
         public TodoItemViewModel()
         {
             // 加入用来测试的item
             //ImageSource imgSource = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/背景.jpg"));
             this.AllItems1.Add(new Models.TodoItem("0", "TA", "TA IS A GIRL", DateTime.Now, "ms-appx:///Assets/背景.jpg"));
+
+            var db = AppDatabase.GetDbConnection();
+            using (var statement = db.Prepare("SELECT Id, Title, Details, DueDate, Path FROM " + TABLE_NAME))
+            {
+                StringBuilder result = new StringBuilder();
+                SQLiteResult r = statement.Step();
+                while (SQLiteResult.ROW == r)
+                {
+                    for (int num = 0; num < statement.DataCount; num += 5)
+                    {
+                        this.allItems.Add(new Models.TodoItem((string)statement[num], (string)statement[num + 1], (string)statement[num + 2], Convert.ToDateTime((string)statement[num + 3]), (string)statement[num + 4]));
+                    }
+                    r = statement.Step();
+                }
+                if (SQLiteResult.DONE == r)
+                {
+
+                }
+            }
         }
 
         // AddTodoItem
         public void AddTodoItem(string title, string description, DateTime date, string path)
         {
-            string num = gitIdInstance();
+            string num = String.Empty;
             this.AllItems1.Add(new Models.TodoItem(num, title, description, date, path));
         }
         public void AddTodoItem(TodoItem str)
