@@ -17,6 +17,7 @@ using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
 using System.Text;
 using SQLitePCL;
+using System.Collections.Generic;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -123,121 +124,134 @@ namespace App
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e); // why add
-            if (e.NavigationMode == NavigationMode.New)
-            {
-                ApplicationData.Current.LocalSettings.Values.Remove("MainPage");
-            }
-            else
-            {
-                if (ApplicationData.Current.LocalSettings.Values.ContainsKey("MainPage"))
-                {
-                    var composite = ApplicationData.Current.LocalSettings.Values["MainPage"] as ApplicationDataCompositeValue;
-                    ////TodoItemImage.Source = (dynamic)composite["TodoItemImage"]; 
-                    //TodoItemTitle.Text = (string)composite["TodoItemTitle"];
-                    ////CheckBox.IsChecked = (bool?)composite["CheckBox"];
-
-                    // 第一种尝试方法
-                    //for (int i = 0; i < ViewModel.AllItems.Count; ++i)
-                    //{
-                    //    ViewModel.AllItems[i] = composite["TodoItem" + i.ToString()];
-                    //}
-                    // 第二种尝试方法
-                    //for (int i = 0; i < ViewModel.AllItems.Count; ++i)
-                    //{
-                    //    string filename = @"Assets/TodoItem" + i.ToString() + ".dat";
-                    //    using (FileStream fs = new FileStream(filename, FileMode.Open))
-                    //    {
-                    //        BinaryFormatter formatter = new BinaryFormatter();
-                    //        TodoItem x = (TodoItem)formatter.Deserialize(fs);
-                    //        ViewModel.AddTodoItem(x.Title, x.Description, x.Date, x.Img);
-                    //    }
-                    //}
-                    // 第三种尝试方法
-                    for (int i = 0; i < (int)composite["count"]; ++i)
-                    {
-                        string valueStr = "TodoItem" + i.ToString();
-                        TodoItem temp = new TodoItem();
-                        temp.SetMyString(composite[valueStr].ToString());
-                        //temp.StrSource = composite[valueStr].ToString();
-                        ViewModel.AddTodoItem(temp);
-                    }
-
-                    // 保留图片的更改
-                    // 第一种尝试方法
-                    //string path = composite["TodoItemImage2"].ToString();
-                    //TodoItemImage2.ImageSource = Image.FromFile(path);
-                    // 第二种尝试方法
-                    //try
-                    //{
-                    //    string fn = @composite["TodoItemImage2"].ToString();
-                    //    TodoItemImage2.ImageSource = new BitmapImage(new Uri(fn, UriKind.Relative));
-                    //}
-                    //catch
-                    //{
-
-                    //}
-                    // 第三种尝试方法
-                    imgStr = composite["rightImage"].ToString();
-                    SetPicture(imgStr);
-                    TodoItemTitle2.Text = (string)composite["TodoItemTitle2"];
-                    TodoItemDetail.Text = (string)composite["TodoItemDetail"];
-                    Datepicker.Date = DateTimeOffset.Parse((string)composite["Datepicker"]);
-                }
-            }
-
-            // 单例模式下注释
-            //if (e.Parameter.GetType() == typeof(Models.TodoItemViewModel))
+            DataTransferManager.GetForCurrentView().DataRequested -= OnShareDataRequested;
+            //base.OnNavigatedTo(e); // why add
+            //if (e.NavigationMode == NavigationMode.New)
             //{
-            //    //this.ViewModel = (Models.TodoItemViewModel)(e.Parameter);
-            //    //this.ViewModel.SetString(e.Parameter.ToString());
+            //    ApplicationData.Current.LocalSettings.Values.Remove("MainPage");
             //}
+            //else
+            //{
+            //    if (ApplicationData.Current.LocalSettings.Values.ContainsKey("MainPage"))
+            //    {
+            //        var composite = ApplicationData.Current.LocalSettings.Values["MainPage"] as ApplicationDataCompositeValue;
+            //        ////TodoItemImage.Source = (dynamic)composite["TodoItemImage"]; 
+            //        //TodoItemTitle.Text = (string)composite["TodoItemTitle"];
+            //        ////CheckBox.IsChecked = (bool?)composite["CheckBox"];
+
+            //        // 第一种尝试方法
+            //        //for (int i = 0; i < ViewModel.AllItems.Count; ++i)
+            //        //{
+            //        //    ViewModel.AllItems[i] = composite["TodoItem" + i.ToString()];
+            //        //}
+            //        // 第二种尝试方法
+            //        //for (int i = 0; i < ViewModel.AllItems.Count; ++i)
+            //        //{
+            //        //    string filename = @"Assets/TodoItem" + i.ToString() + ".dat";
+            //        //    using (FileStream fs = new FileStream(filename, FileMode.Open))
+            //        //    {
+            //        //        BinaryFormatter formatter = new BinaryFormatter();
+            //        //        TodoItem x = (TodoItem)formatter.Deserialize(fs);
+            //        //        ViewModel.AddTodoItem(x.Title, x.Description, x.Date, x.Img);
+            //        //    }
+            //        //}
+            //        // 第三种尝试方法
+            //        for (int i = 0; i < (int)composite["count"]; ++i)
+            //        {
+            //            string valueStr = "TodoItem" + i.ToString();
+            //            TodoItem temp = new TodoItem();
+            //            temp.SetMyString(composite[valueStr].ToString());
+            //            //temp.StrSource = composite[valueStr].ToString();
+            //            ViewModel.AddTodoItem(temp);
+            //        }
+
+            //        // 保留图片的更改
+            //        // 第一种尝试方法
+            //        //string path = composite["TodoItemImage2"].ToString();
+            //        //TodoItemImage2.ImageSource = Image.FromFile(path);
+            //        // 第二种尝试方法
+            //        //try
+            //        //{
+            //        //    string fn = @composite["TodoItemImage2"].ToString();
+            //        //    TodoItemImage2.ImageSource = new BitmapImage(new Uri(fn, UriKind.Relative));
+            //        //}
+            //        //catch
+            //        //{
+
+            //        //}
+            //        // 第三种尝试方法
+            //        imgStr = composite["rightImage"].ToString();
+            //        SetPicture(imgStr);
+            //        TodoItemTitle2.Text = (string)composite["TodoItemTitle2"];
+            //        TodoItemDetail.Text = (string)composite["TodoItemDetail"];
+            //        Datepicker.Date = DateTimeOffset.Parse((string)composite["Datepicker"]);
+            //    }
+            //}
+
+            //// 单例模式下注释
+            ////if (e.Parameter.GetType() == typeof(Models.TodoItemViewModel))
+            ////{
+            ////    //this.ViewModel = (Models.TodoItemViewModel)(e.Parameter);
+            ////    //this.ViewModel.SetString(e.Parameter.ToString());
+            ////}
+        }
+        async void OnShareDataRequested(DataTransferManager sender, DataRequestedEventArgs args)
+        {
+            var dp = args.Request.Data;
+            var deferral = args.Request.GetDeferral();
+            var photoFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri(ShareItem.StrSource));
+            dp.Properties.Title = ShareItem.Title;
+            dp.Properties.Description = ShareItem.Description;
+            dp.SetText("done" + ShareItem.Title);
+            dp.SetStorageItems(new List<StorageFile> { photoFile });
+            deferral.Complete();
         }
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            bool suspending = ((App)App.Current).issuspend;
-            if (suspending)
-            {
-                ApplicationDataCompositeValue composite = new ApplicationDataCompositeValue();
-                ////composite["TodoItemImage"] = TodoItemImage.Source;
-                //composite["TodoItemTitle"] = TodoItemTitle.Text;
-                ////composite["CheckBox"] = (string)CheckBox.IsChecked;
+            DataTransferManager.GetForCurrentView().DataRequested -= OnShareDataRequested;
+            //bool suspending = ((App)App.Current).issuspend;
+            //if (suspending)
+            //{
+            //    ApplicationDataCompositeValue composite = new ApplicationDataCompositeValue();
+            //    ////composite["TodoItemImage"] = TodoItemImage.Source;
+            //    //composite["TodoItemTitle"] = TodoItemTitle.Text;
+            //    ////composite["CheckBox"] = (string)CheckBox.IsChecked;
 
-                composite["count"] = ViewModel.AllItems.Count;
-                // 第一种尝试方法
-                //for(int i = 0; i < ViewModel.AllItems.Count; ++i)
-                //{
-                //    composite["TodoItem" + i.ToString()] = 
-                //}
-                // 第二种尝试方法
-                //for (int i = 0; i < ViewModel.AllItems.Count; ++i)
-                //{
-                //    string filename = @"ms-appx:///Assets/TodoItem" + i.ToString() + ".dat";
-                //    using (FileStream fs = new FileStream(filename, FileMode.Create))
-                //    {
-                //        BinaryFormatter formatter = new BinaryFormatter();
-                //        formatter.Serialize(fs, ViewModel.AllItems[i]);
-                //    }
-                //}
-                // 第三种尝试方法
-                for (int i = 0; i < ViewModel.AllItems.Count; ++i)
-                {
-                    string valueStr = "TodoItem" + i.ToString();
-                    composite[valueStr] = ViewModel.AllItems[i].GetMyString();
-                    //composite[valueStr] = ViewModel.AllItems[i].StrSource;
-                }
+            //    composite["count"] = ViewModel.AllItems.Count;
+            //    // 第一种尝试方法
+            //    //for(int i = 0; i < ViewModel.AllItems.Count; ++i)
+            //    //{
+            //    //    composite["TodoItem" + i.ToString()] = 
+            //    //}
+            //    // 第二种尝试方法
+            //    //for (int i = 0; i < ViewModel.AllItems.Count; ++i)
+            //    //{
+            //    //    string filename = @"ms-appx:///Assets/TodoItem" + i.ToString() + ".dat";
+            //    //    using (FileStream fs = new FileStream(filename, FileMode.Create))
+            //    //    {
+            //    //        BinaryFormatter formatter = new BinaryFormatter();
+            //    //        formatter.Serialize(fs, ViewModel.AllItems[i]);
+            //    //    }
+            //    //}
+            //    // 第三种尝试方法
+            //    for (int i = 0; i < ViewModel.AllItems.Count; ++i)
+            //    {
+            //        string valueStr = "TodoItem" + i.ToString();
+            //        composite[valueStr] = ViewModel.AllItems[i].GetMyString();
+            //        //composite[valueStr] = ViewModel.AllItems[i].StrSource;
+            //    }
 
-                //composite["bool0"] = ViewModel.AllItems[0].Completed;
-                //composite["bool1"] = ViewModel.AllItems[1].Completed;
-                //composite["TodoItemImage2"] = TodoItemImage2.ImageSource.ToString();
+            //    //composite["bool0"] = ViewModel.AllItems[0].Completed;
+            //    //composite["bool1"] = ViewModel.AllItems[1].Completed;
+            //    //composite["TodoItemImage2"] = TodoItemImage2.ImageSource.ToString();
 
-                composite["rightImage"] = this.imgStr;
-                composite["TodoItemTitle2"] = TodoItemTitle2.Text;
-                composite["TodoItemDetail"] = TodoItemDetail.Text;
-                composite["Datepicker"] = Datepicker.Date.ToString("yyyy-MM-dd");
+            //    composite["rightImage"] = this.imgStr;
+            //    composite["TodoItemTitle2"] = TodoItemTitle2.Text;
+            //    composite["TodoItemDetail"] = TodoItemDetail.Text;
+            //    composite["Datepicker"] = Datepicker.Date.ToString("yyyy-MM-dd");
 
-                ApplicationData.Current.LocalSettings.Values["MainPage"] = composite;
-            }
+            //    ApplicationData.Current.LocalSettings.Values["MainPage"] = composite;
+            //}
         }
 
         //protected void OnNavigatedTo(NavigationEventArgs e)
@@ -280,14 +294,14 @@ namespace App
             //this.line1.Visibility = Visibility.Visible;
             //bool isChecked = true;
             if (ViewModel.SelectedItem != null)
-                ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, ViewModel.SelectedItem.Title, ViewModel.SelectedItem.Description, ViewModel.SelectedItem.Date, true);
+                ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, ViewModel.SelectedItem.Title, ViewModel.SelectedItem.Description, ViewModel.SelectedItem.Date, ViewModel.SelectedItem.Img, ViewModel.SelectedItem.StrSource, true);
         }
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             //this.line1.Visibility = Visibility.Collapsed;
             //bool isChecked = false;
             if (ViewModel.SelectedItem != null)
-                ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, ViewModel.SelectedItem.Title, ViewModel.SelectedItem.Description, ViewModel.SelectedItem.Date, false);
+                ViewModel.UpdateTodoItem(ViewModel.SelectedItem.Id, ViewModel.SelectedItem.Title, ViewModel.SelectedItem.Description, ViewModel.SelectedItem.Date, ViewModel.SelectedItem.Img, ViewModel.SelectedItem.StrSource, false);
         }
 
         private void ScrollVier_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
