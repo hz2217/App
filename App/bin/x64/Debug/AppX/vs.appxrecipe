@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-18T15:28:42.502</Modified>
+      <Modified>2018-04-19T06:30:53.590</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\App.exe">
       <PackagePath>entrypoint\App.exe</PackagePath>
-      <Modified>2018-04-18T15:28:40.622</Modified>
+      <Modified>2018-04-19T06:30:51.137</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\NuGetPackagesFallback\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.0.8\runtimes\win10-x64\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -709,77 +709,77 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Ubuntu17.10.png">
       <PackagePath>Assets\Ubuntu17.10.png</PackagePath>
-      <Modified>2018-03-28T14:39:46.000</Modified>
+      <Modified>2018-04-19T05:42:54.932</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2018-04-05T18:11:59.931</Modified>
+      <Modified>2018-04-19T05:42:54.912</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-05T18:11:59.931</Modified>
+      <Modified>2018-04-19T05:42:54.913</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-05T18:11:59.931</Modified>
+      <Modified>2018-04-19T05:42:54.914</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-05T18:11:59.931</Modified>
+      <Modified>2018-04-19T05:42:54.915</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-05T18:11:59.931</Modified>
+      <Modified>2018-04-19T05:42:54.916</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-05T18:11:59.931</Modified>
+      <Modified>2018-04-19T05:42:54.917</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-05T18:11:59.931</Modified>
+      <Modified>2018-04-19T05:42:54.933</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景.bmp">
       <PackagePath>Assets\背景.bmp</PackagePath>
-      <Modified>2018-03-28T14:09:48.000</Modified>
+      <Modified>2018-04-19T05:42:54.972</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景.jpg">
       <PackagePath>Assets\背景.jpg</PackagePath>
-      <Modified>2018-03-28T14:12:24.000</Modified>
+      <Modified>2018-04-19T05:42:54.976</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景2.jpg">
       <PackagePath>Assets\背景2.jpg</PackagePath>
-      <Modified>2018-03-28T14:21:32.000</Modified>
+      <Modified>2018-04-19T05:42:54.978</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景3.jpg">
       <PackagePath>Assets\背景3.jpg</PackagePath>
-      <Modified>2018-03-28T14:45:26.000</Modified>
+      <Modified>2018-04-19T05:42:54.980</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景4.jpg">
       <PackagePath>Assets\背景4.jpg</PackagePath>
-      <Modified>2018-03-28T14:48:16.000</Modified>
+      <Modified>2018-04-19T05:42:54.983</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\页面背景.jpg">
       <PackagePath>Assets\页面背景.jpg</PackagePath>
-      <Modified>2018-03-28T14:41:20.000</Modified>
+      <Modified>2018-04-19T05:42:54.985</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-04-11T06:56:15.946</Modified>
+      <Modified>2018-04-19T05:42:54.992</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Tile.xml">
       <PackagePath>Tile.xml</PackagePath>
-      <Modified>2018-04-17T15:05:26.960</Modified>
+      <Modified>2018-04-19T05:42:54.992</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\App.xr.xml">
       <PackagePath>App.xr.xml</PackagePath>
-      <Modified>2018-04-18T14:18:04.944</Modified>
+      <Modified>2018-04-19T05:42:57.033</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -788,11 +788,11 @@
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-18T15:28:41.753</Modified>
+      <Modified>2018-04-19T06:30:53.012</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\Core\App.exe">
       <PackagePath>App.exe</PackagePath>
-      <Modified>2018-04-18T15:28:42.491</Modified>
+      <Modified>2018-04-19T06:30:53.575</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
