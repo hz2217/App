@@ -12,6 +12,11 @@
 
 5. 写网络访问处理函数
 
+   1. 首先 解决如何向网站发送带有信息的请求
+   2. 如何接收反馈
+   3. 如何处理 json or xml 格式 string
+   4. 进行 UI 输出
+
    ```C#
    xml
    public static async Task<CoordAddressResult> GetWeather(String Location, String Location2)
