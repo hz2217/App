@@ -1,2 +1,4 @@
-# App
-Only a MOSAD APP on vs的奋斗
+<<<<<<< HEAD
+# UWP - MOSAD
+Only a UWP on vs 
+>>>>>>> origin/master
