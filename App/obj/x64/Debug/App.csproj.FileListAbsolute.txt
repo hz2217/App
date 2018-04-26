@@ -300,3 +300,13 @@ C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\resources.en.resfiles.intermediate
 C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\SQLitePCL.Ext.pri.xml
 C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\ProjectArchitectures.txt
 C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\App.csprojResolveAssemblyReference.cache
+C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\System.Net.Http.Formatting.dll
+C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\Newtonsoft.Json.Bson.dll
+C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\System.Net.Http.Formatting\en-US\System.Net.Http.Properties.CommonWebApiResources.resw
+C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\System.Net.Http.Formatting\en-US\System.Net.Http.Properties.Resources.resw
+C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\NewPage2.g.i.cs
+C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\NewPage2.g.cs
+C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\NewPage2.xaml
+C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\NewPage2.xbf
+C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\NewPage2.xbf

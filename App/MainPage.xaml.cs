@@ -191,25 +191,32 @@ namespace App
                 //    }
                 //}
             }
-            if (e.Parameter.GetType() == typeof(TodoItemViewModel))
+            try
             {
-                this.ViewModel = (TodoItemViewModel)(e.Parameter);
-            }
-            if (ViewModel.SelectedItem == null)
-            {
-                Create.Content = "Create";
-                //var i = new MessageDialog("Welcome!").ShowAsync();
-            }
-            else
-            {
+                if (e.Parameter.GetType() == typeof(TodoItemViewModel))
+                {
+                    this.ViewModel = (TodoItemViewModel)(e.Parameter);
+                }
+                if (ViewModel.SelectedItem == null)
+                {
+                    Create.Content = "Create";
+                    //var i = new MessageDialog("Welcome!").ShowAsync();
+                }
+                else
+                {
 
-                Create.Content = "Update";
-                TodoItemTitle2.Text = ViewModel.SelectedItem.Title;
-                TodoItemDetail.Text = ViewModel.SelectedItem.Description;
-                Datepicker.Date = ViewModel.SelectedItem.Date;
-                SetPicture(ViewModel.SelectedItem.Path);
+                    Create.Content = "Update";
+                    TodoItemTitle2.Text = ViewModel.SelectedItem.Title;
+                    TodoItemDetail.Text = ViewModel.SelectedItem.Description;
+                    Datepicker.Date = ViewModel.SelectedItem.Date;
+                    SetPicture(ViewModel.SelectedItem.Path);
+                }
+                DataTransferManager.GetForCurrentView().DataRequested += OnShareDataRequested;
             }
-            DataTransferManager.GetForCurrentView().DataRequested += OnShareDataRequested;
+            catch (Exception ex)
+            {
+                ;
+            }
 
             {
                 //// 单例模式下注释
@@ -306,6 +313,10 @@ namespace App
             {
                 Frame.Navigate(typeof(NewPage));
                 //Frame.Navigate(typeof(NewPage), ViewModel.GetString());
+            } else
+            {
+                // 添加 NewPage2 作为查询页面
+                Frame.Navigate(typeof(NewPage2));
             }
         }
         private void AddAppBarButton_Click_1(object sender, RoutedEventArgs e)

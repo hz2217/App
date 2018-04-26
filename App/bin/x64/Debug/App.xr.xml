@@ -219,5 +219,6 @@
     </RootType>
     <RootType FullName="App.MainPage" />
     <RootType FullName="App.NewPage" />
+    <RootType FullName="App.NewPage2" />
   </Roots.RootTypes>
 </Roots>

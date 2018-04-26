@@ -61,6 +61,8 @@
 
    3. Json.NET is a popular high-performance JSON framework for .NET.
 
+   4. 会出现 WebApi.Client，在引用中
+
 6. **Add a Model Class**
 
    1. This class matches the data model used by the web API. An app can use **HttpClient** to read a `Product`instance from an HTTP response. The app doesn't have to write any deserialization code
@@ -75,5 +77,44 @@
       }
       ```
 
-      ​
+7. 添加运行程序类 Program，于 App.HttpClientSample
+
+8. 设计 UI 界面
+
+9. 实现内在逻辑，发现所学知识不够
+
+10. **学习 JSON**
+
+11. ```C#
+    示例
+    下面的代码示例使用 GetRequestStream 方法返回流实例
+    C#
+    // Set the 'Method' property of the 'Webrequest' to 'POST'.
+    myHttpWebRequest.Method = "POST";
+    Console.WriteLine ("\nPlease enter the data to be posted to the (http://www.contoso.com/codesnippets/next.asp) Uri :");
+
+    // Create a new string object to POST data to the Url.
+    string inputData = Console.ReadLine ();
+
+
+    string postData = "firstone=" + inputData;
+    ASCIIEncoding encoding = new ASCIIEncoding ();
+    byte[] byte1 = encoding.GetBytes (postData);
+
+    // Set the content type of the data being posted.
+    myHttpWebRequest.ContentType = "application/x-www-form-urlencoded";
+
+    // Set the content length of the string being posted.
+    myHttpWebRequest.ContentLength = byte1.Length;
+
+    Stream newStream = myHttpWebRequest.GetRequestStream ();
+
+    newStream.Write (byte1, 0, byte1.Length);
+    Console.WriteLine ("The value of 'ContentLength' property after sending the data is {0}", myHttpWebRequest.ContentLength);
+
+    // Close the Stream object.
+    newStream.Close ();
+    ```
+
+12. ​
 
