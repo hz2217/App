@@ -6,8 +6,47 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Name="start" Icon="Play" FontFamily="Comic Sans MS" FontSize="20" Click="start_Click" HorizontalAlignment="Left" Label="播放"/>
+            <AppBarButton Name="pause" Icon="Pause" FontFamily="Comic Sans MS"  FontSize="20" Click="pause_Click" Label="暂停"/>
+            <AppBarButton Name="stop" Icon="Stop" FontFamily="Comic Sans MS" FontSize="20" Click="stop_Click" Label="停止"/>
+            <AppBarButton Name="add" Icon="OpenFile" FontFamily="Comic Sans MS" FontSize="20" Click="add_Click" Label="选择文件"/>
+            <AppBarButton Name="display" Icon="FullScreen" FontFamily="Comic Sans MS" FontSize="20" Click="display_Click" Label="全屏"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/背景12.jpg" Opacity="0.5" />
+        </Grid.Background>
+        <StackPanel>
+            <MediaElement Source="media\numbers.wmw" Name="myMediaElement"
+                          Width="450" Height="250" Margin="0,200,0,0"
+                          Loaded="Manual" Unloaded="Stop" Stretch="Fill"
+                          MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded"
+                          CurrentStateChanged="MediaElement_CurrentStateChanged"
+                          IsFullWindow="False"/>
+            <StackPanel HorizontalAlignment="Center" Width="450" Orientation="Horizontal">
+                
+                <!--<Image Source="images\UI_play.gif" MouseDown="OnMouseDownPlayMedia" Margin="5"/>
+                <Image Source="images\UI_pause.gif" MouseDown="OnMouseDownPauseMedia" Margin="5"/>
+                <Image Source="images\UI_stop.gif" MouseDown="OnMouseStopMedia" Margin="5"/>-->
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+                <TextBlock Foreground="Blue" Margin="20,0,10,0" VerticalAlignment="Center" Text="Volume" FontFamily="Comic Sans MS"/>
+                <Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume"
+                        Minimum="0" Maximum="1" StepFrequency="0.1" Value="0.5" Width="70"/>
+
+                <TextBlock Foreground="Blue" Margin="10,0,10,0" VerticalAlignment="Center" Text="Speed" FontFamily="Comic Sans MS"/>
+                <Slider Name="speedRarionSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaSpeedRatio"
+                        Value="1" Width="70"/>
+
+                <TextBlock Foreground="Blue" Margin="10,0,10,0" VerticalAlignment="Center" Text="Seek to" FontFamily="Comic Sans MS"/>
+                <Slider Name="timelineSlider" Margin="5" ValueChanged="SeekToMediaPosition" Width="70"/>
+                
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
