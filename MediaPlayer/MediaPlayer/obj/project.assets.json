@@ -25575,11 +25575,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Wjh\\大二下\\MOSAD\\App\\MediaPlayer\\MediaPlayer\\MediaPlayer.csproj",
+      "projectUniqueName": "C:\\Wjh\\大二下\\MOSAD\\MOSAD_UWP\\MediaPlayer\\MediaPlayer\\MediaPlayer.csproj",
       "projectName": "MediaPlayer",
-      "projectPath": "C:\\Wjh\\大二下\\MOSAD\\App\\MediaPlayer\\MediaPlayer\\MediaPlayer.csproj",
+      "projectPath": "C:\\Wjh\\大二下\\MOSAD\\MOSAD_UWP\\MediaPlayer\\MediaPlayer\\MediaPlayer.csproj",
       "packagesPath": "C:\\Users\\Zero\\.nuget\\packages\\",
-      "outputPath": "C:\\Wjh\\大二下\\MOSAD\\App\\MediaPlayer\\MediaPlayer\\obj\\",
+      "outputPath": "C:\\Wjh\\大二下\\MOSAD\\MOSAD_UWP\\MediaPlayer\\MediaPlayer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

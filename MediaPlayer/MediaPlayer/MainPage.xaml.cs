@@ -1,8 +1,12 @@
 ﻿using System;
 using Windows.System.Display;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -49,14 +53,29 @@ namespace MediaPlayer
         }
         private void display_Click(object sender, RoutedEventArgs e)
         {
-            if(myMediaElement.IsFullWindow)
+            ApplicationView view = ApplicationView.GetForCurrentView();
+            bool isInFullScreenMode = view.IsFullScreenMode;
+            if (isInFullScreenMode)
             {
-                myMediaElement.IsFullWindow = false;
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/背景12.jpg", UriKind.Absolute));
+                MyGrid.Background = imageBrush;
+                MyGrid.Background.Opacity = 0.5;
+                view.ExitFullScreenMode();
             }
             else
             {
-                myMediaElement.IsFullWindow = true;
+                MyGrid.Background = new SolidColorBrush(Colors.Black);// Windows.UI.Xaml.Media.Brush
+                view.TryEnterFullScreenMode();
             }
+            //if(myMediaElement.IsFullWindow)
+            //{
+            //    myMediaElement.IsFullWindow = false;
+            //}
+            //else
+            //{
+            //    myMediaElement.IsFullWindow = true;
+            //}
         }
         private async void add_Click(object sender, RoutedEventArgs e)
         {

@@ -21,6 +21,7 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
+      <RootProperty Name="Name" />
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />
     </RootType>

@@ -1,1 +1,1 @@
-C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\MediaPlayer.csproj;x64
+C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\MediaPlayer.csproj;x64

@@ -17,13 +17,13 @@
         </CommandBar>
     </Page.BottomAppBar>
     
-    <Grid>
+    <Grid x:ConnectionId='6' Name="MyGrid">
         <Grid.Background>
             <ImageBrush ImageSource="Assets/背景12.jpg" Opacity="0.5" />
         </Grid.Background>
         <StackPanel>
-            <MediaElement x:ConnectionId='6' Source="media\numbers.wmw" Name="myMediaElement"
-                          Width="450" Height="250" Margin="0,200,0,0"
+            <MediaElement x:ConnectionId='7' Source="media\numbers.wmw" Name="myMediaElement"
+                          Width="900" Height="556" Margin="0,150,0,0"
                                                           Stretch="Fill"
                                                                                            
                                                                                 
@@ -36,15 +36,15 @@
 
 
                 <TextBlock Foreground="Blue" Margin="20,0,10,0" VerticalAlignment="Center" Text="Volume" FontFamily="Comic Sans MS"/>
-                <Slider x:ConnectionId='7' Name="volumeSlider" VerticalAlignment="Center"                                 
+                <Slider x:ConnectionId='8' Name="volumeSlider" VerticalAlignment="Center"                                 
                         Minimum="0" Maximum="1" StepFrequency="0.1" Value="0.5" Width="70"/>
 
                 <TextBlock Foreground="Blue" Margin="10,0,10,0" VerticalAlignment="Center" Text="Speed" FontFamily="Comic Sans MS"/>
-                <Slider x:ConnectionId='8' Name="speedRarionSlider" VerticalAlignment="Center"                                     
+                <Slider x:ConnectionId='9' Name="speedRarionSlider" VerticalAlignment="Center"                                     
                         Value="1" Width="70"/>
 
                 <TextBlock Foreground="Blue" Margin="10,0,10,0" VerticalAlignment="Center" Text="Seek to" FontFamily="Comic Sans MS"/>
-                <Slider x:ConnectionId='9' Name="timelineSlider" Margin="5"                                    Width="70"/>
+                <Slider x:ConnectionId='10' Name="timelineSlider" Margin="5"                                    Width="70"/>
                 
             </StackPanel>
         </StackPanel>

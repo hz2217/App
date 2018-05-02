@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>e16ecb12-ff64-4447-966b-cac78debc882</PackageIdentityName>
     <PackageIdentityPublisher>CN=Zero</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\bin\x64\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\bin\x64\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>6147967100EA52D94FE78CD4D2594DDF04092A12F4A92675F4A6FD10F87AF30E</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>e16ecb12-ff64-4447-966b-cac78debc882_1.0.0.0_x64__1kvvy1m0ajgn2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>e16ecb12-ff64-4447-966b-cac78debc882_1kvvy1m0ajgn2!App</RegisteredUserModeAppID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-01T04:02:44.819</Modified>
+      <Modified>2018-05-01T04:21:36.401</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\bin\x64\Debug\MediaPlayer.exe">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\bin\x64\Debug\MediaPlayer.exe">
       <PackagePath>entrypoint\MediaPlayer.exe</PackagePath>
-      <Modified>2018-05-01T04:02:41.801</Modified>
+      <Modified>2018-05-01T04:21:35.001</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Zero\.nuget\packages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -495,72 +495,72 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-11T15:15:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Assets\Ubuntu17.10.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Assets\Ubuntu17.10.png">
       <PackagePath>Assets\Ubuntu17.10.png</PackagePath>
       <Modified>2018-05-01T03:59:22.419</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2018-05-01T03:59:22.398</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-01T03:59:22.399</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-01T03:59:22.400</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-01T03:59:22.401</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-01T03:59:22.402</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-01T03:59:22.404</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-05-01T03:59:22.420</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Assets\背景12.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Assets\背景12.jpg">
       <PackagePath>Assets\背景12.jpg</PackagePath>
       <Modified>2018-05-01T03:59:22.423</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Assets\背景13.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Assets\背景13.jpg">
       <PackagePath>Assets\背景13.jpg</PackagePath>
       <Modified>2018-05-01T03:59:22.425</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2018-05-01T03:59:22.432</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\bin\x64\Debug\MediaPlayer.xr.xml">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\bin\x64\Debug\MediaPlayer.xr.xml">
       <PackagePath>MediaPlayer.xr.xml</PackagePath>
-      <Modified>2018-05-01T04:02:41.500</Modified>
+      <Modified>2018-05-01T04:15:25.893</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-09-28T09:28:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-01T04:02:44.375</Modified>
+      <Modified>2018-05-01T04:21:35.920</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\MediaPlayer\MediaPlayer\bin\x64\Debug\Core\MediaPlayer.exe">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\MediaPlayer\MediaPlayer\bin\x64\Debug\Core\MediaPlayer.exe">
       <PackagePath>MediaPlayer.exe</PackagePath>
-      <Modified>2018-05-01T04:02:44.810</Modified>
+      <Modified>2018-05-01T04:21:36.380</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
