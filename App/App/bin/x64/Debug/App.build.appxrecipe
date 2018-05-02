@@ -10,22 +10,22 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>8dd6f581-1748-4b52-9cae-86268ffcf947</PackageIdentityName>
     <PackageIdentityPublisher>CN=Zero</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\App.exe">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\App.exe">
       <PackagePath>entrypoint\App.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Zero\.nuget\packages\microsoft.aspnet.webapi.client\5.2.4\lib\netstandard2.0\System.Net.Http.Formatting.dll">
@@ -538,71 +538,71 @@
     <AppxPackagedFile Include="C:\Users\Zero\.nuget\packages\sqlitepcl\3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Ubuntu17.10.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\Ubuntu17.10.png">
       <PackagePath>Assets\Ubuntu17.10.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景.bmp">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\背景.bmp">
       <PackagePath>Assets\背景.bmp</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\背景.jpg">
       <PackagePath>Assets\背景.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景2.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\背景2.jpg">
       <PackagePath>Assets\背景2.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景3.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\背景3.jpg">
       <PackagePath>Assets\背景3.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景4.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\背景4.jpg">
       <PackagePath>Assets\背景4.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\页面背景.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\页面背景.jpg">
       <PackagePath>Assets\页面背景.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Tile.xml">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Tile.xml">
       <PackagePath>Tile.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\App.xr.xml">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\App.xr.xml">
       <PackagePath>App.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\Core\App.exe">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\Core\App.exe">
       <PackagePath>App.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

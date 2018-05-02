@@ -16012,11 +16012,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Wjh\\大二下\\MOSAD\\App\\App\\App.csproj",
+      "projectUniqueName": "C:\\Wjh\\大二下\\MOSAD\\MOSAD_UWP\\App\\App\\App.csproj",
       "projectName": "App",
-      "projectPath": "C:\\Wjh\\大二下\\MOSAD\\App\\App\\App.csproj",
+      "projectPath": "C:\\Wjh\\大二下\\MOSAD\\MOSAD_UWP\\App\\App\\App.csproj",
       "packagesPath": "C:\\Users\\Zero\\.nuget\\packages\\",
-      "outputPath": "C:\\Wjh\\大二下\\MOSAD\\App\\App\\obj\\",
+      "outputPath": "C:\\Wjh\\大二下\\MOSAD\\MOSAD_UWP\\App\\App\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

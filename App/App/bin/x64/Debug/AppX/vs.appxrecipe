@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>8dd6f581-1748-4b52-9cae-86268ffcf947</PackageIdentityName>
     <PackageIdentityPublisher>CN=Zero</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Wjh\大二下\MOSAD\App\App\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>F7634219471C5B33BFB3CABFB8D0E27567600A256DD9E475681D12F701BC4924</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>8dd6f581-1748-4b52-9cae-86268ffcf947_1.0.0.0_x64__1kvvy1m0ajgn2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8dd6f581-1748-4b52-9cae-86268ffcf947_1kvvy1m0ajgn2!App</RegisteredUserModeAppID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-26T10:17:47.323</Modified>
+      <Modified>2018-05-02T05:05:46.228</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\App.exe">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\App.exe">
       <PackagePath>entrypoint\App.exe</PackagePath>
-      <Modified>2018-04-26T10:17:46.152</Modified>
+      <Modified>2018-05-02T05:05:45.212</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Zero\.nuget\packages\microsoft.aspnet.webapi.client\5.2.4\lib\netstandard2.0\System.Net.Http.Formatting.dll">
       <PackagePath>System.Net.Http.Formatting.dll</PackagePath>
@@ -719,92 +719,92 @@
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
       <Modified>2014-12-09T03:04:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Ubuntu17.10.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\Ubuntu17.10.png">
       <PackagePath>Assets\Ubuntu17.10.png</PackagePath>
-      <Modified>2018-04-19T05:42:54.932</Modified>
+      <Modified>2018-05-02T04:33:04.916</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2018-04-19T05:42:54.912</Modified>
+      <Modified>2018-05-02T04:33:04.885</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-19T05:42:54.913</Modified>
+      <Modified>2018-05-02T04:33:04.885</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-19T05:42:54.914</Modified>
+      <Modified>2018-05-02T04:33:04.901</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-19T05:42:54.915</Modified>
+      <Modified>2018-05-02T04:33:04.901</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-19T05:42:54.916</Modified>
+      <Modified>2018-05-02T04:33:04.901</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-19T05:42:54.917</Modified>
+      <Modified>2018-05-02T04:33:04.901</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-19T05:42:54.933</Modified>
+      <Modified>2018-05-02T04:33:04.916</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景.bmp">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\背景.bmp">
       <PackagePath>Assets\背景.bmp</PackagePath>
-      <Modified>2018-04-19T05:42:54.972</Modified>
+      <Modified>2018-05-02T04:33:04.948</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\背景.jpg">
       <PackagePath>Assets\背景.jpg</PackagePath>
-      <Modified>2018-04-19T05:42:54.976</Modified>
+      <Modified>2018-05-02T04:33:04.963</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景2.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\背景2.jpg">
       <PackagePath>Assets\背景2.jpg</PackagePath>
-      <Modified>2018-04-19T05:42:54.978</Modified>
+      <Modified>2018-05-02T04:33:04.963</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景3.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\背景3.jpg">
       <PackagePath>Assets\背景3.jpg</PackagePath>
-      <Modified>2018-04-19T05:42:54.980</Modified>
+      <Modified>2018-05-02T04:33:04.963</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\背景4.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\背景4.jpg">
       <PackagePath>Assets\背景4.jpg</PackagePath>
-      <Modified>2018-04-19T05:42:54.983</Modified>
+      <Modified>2018-05-02T04:33:04.963</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Assets\页面背景.jpg">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Assets\页面背景.jpg">
       <PackagePath>Assets\页面背景.jpg</PackagePath>
-      <Modified>2018-04-19T05:42:54.985</Modified>
+      <Modified>2018-05-02T04:33:04.963</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-04-19T05:42:54.992</Modified>
+      <Modified>2018-05-02T04:33:04.979</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\Tile.xml">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\Tile.xml">
       <PackagePath>Tile.xml</PackagePath>
-      <Modified>2018-04-19T08:46:14.726</Modified>
+      <Modified>2018-05-02T04:33:04.979</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\App.xr.xml">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\App.xr.xml">
       <PackagePath>App.xr.xml</PackagePath>
-      <Modified>2018-04-25T11:42:34.407</Modified>
+      <Modified>2018-05-02T04:33:06.838</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-09-28T09:28:16.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-04-26T10:17:46.870</Modified>
+      <Modified>2018-05-02T05:05:45.783</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\App\App\bin\x64\Debug\Core\App.exe">
+    <AppxPackagedFile Include="C:\Wjh\大二下\MOSAD\MOSAD_UWP\App\App\bin\x64\Debug\Core\App.exe">
       <PackagePath>App.exe</PackagePath>
-      <Modified>2018-04-26T10:17:47.317</Modified>
+      <Modified>2018-05-02T05:05:46.222</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
